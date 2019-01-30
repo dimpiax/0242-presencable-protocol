@@ -28,7 +28,8 @@ extension ArraySlice: Presencable {
 
 let arr = [1, 3]
 arr.dropFirst(2).presence // nil
-arr.presence // [1, 3]
+arr.presence // Optional([1, 3])
+arr.presence?.first! // strictly exist
 
 // custom type
 struct Foo: Presencable {
@@ -41,5 +42,5 @@ struct Foo: Presencable {
     }
 }
 
-Foo(1, 2, 3).presence // Foo
+Foo(1, 2, 3).presence // Optional(Foo)
 Foo().presence // nil
